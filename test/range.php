@@ -8,14 +8,14 @@ use WallaceMaxters\Itertools\RangePairs;
 use WallaceMaxters\Itertools\Iterators\Enumerator;
 use WallaceMaxters\Itertools\Iterators\ArrayPosition;
 
-$range = new Range(1, 10);
-
 $option = isset($argv[1]) ? $argv[1] : NULL;
 
 if ($option == 'range') {
+	
+	$range = new Range(1, 10);
 
-    foreach ($range as $key => $value)
-    {
+    foreach ($range as $key => $value) {
+    	
         printf("%s => %s\n", $key, $value);
     }
 }
