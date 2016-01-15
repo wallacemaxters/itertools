@@ -2,7 +2,14 @@
 
 namespace WallaceMaxters\Itertools\Iterators;
 
+/**
+* @author Wallace de Souza Vizerra <wallacemaxters@gmail.com>
+*/
 interface IteratorMappable extends \OuterIterator
 {
-	public function setMapper(callable $callback);
+    /**
+    * Set the mapper for children iterator
+    * @param callable $callback
+    */
+    public function setMapper(callable $callback);
 }

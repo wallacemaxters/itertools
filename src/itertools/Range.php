@@ -6,83 +6,83 @@ use Iterator;
 use Countable;
 
 class Range implements Iterator, Countable
-{	
+{   
 
-	/**
-	* @var int
-	*/
-	protected $min;
+    /**
+    * @var int
+    */
+    protected $min;
 
-	/**
-	* @var int
-	*/
-	protected $max;
+    /**
+    * @var int
+    */
+    protected $max;
 
-	/**
-	* @var int
-	*/
-	protected $step;
+    /**
+    * @var int
+    */
+    protected $step;
 
-	/**
-	* @var int
-	*/
-	protected $current;
+    /**
+    * @var int
+    */
+    protected $current;
 
-	/**
-	* @var int
-	*/
-	protected $key;
+    /**
+    * @var int
+    */
+    protected $key;
 
-	public function __construct($min, $max, $step = 1)
-	{
+    public function __construct($min, $max, $step = 1)
+    {
 
-		$this->min = $min;	
+        $this->min = $min;  
 
-		$this->max = $max;
+        $this->max = $max;
 
-		$this->step = $step;
+        $this->step = $step;
 
-		$this->current = $this->min;
+        $this->current = $this->min;
 
-		$this->key = 0;
-	}
+        $this->key = 0;
+    }
 
-	public function key()
-	{
-		return $this->valid() ? $this->key : NULL;
-	}
+    public function key()
+    {
+        return $this->valid() ? $this->key : NULL;
+    }
 
-	public function next()
-	{
-		$this->current += $this->step;
+    public function next()
+    {
+        $this->current += $this->step;
 
-		$this->key++;
-	}
+        $this->key++;
+    }
 
-	public function current()
-	{
-		return $this->valid() ? $this->current : NULL;
-	}
+    public function current()
+    {
+        return $this->valid() ? $this->current : NULL;
+    }
 
-	public function valid()
-	{
-		if ($this->step > 0) {
+    public function valid()
+    {
+        if ($this->step > 0) {
 
-			return $this->current <= $this->max;
-		}
+            return $this->current <= $this->max;
+        }
 
-		return $this->current >= $this->max;
-	}
+        return $this->current >= $this->max;
+    }
 
-	public function rewind()
-	{
-		$this->current = $this->min;
+    public function rewind()
+    {
+        $this->current = $this->min;
 
-		$this->key = 0;
-	}
+        $this->key = 0;
+    }
 
-	public function count()
-	{
-		return iterator_count($this);
-	}
+    public function count()
+    {
+        return iterator_count($this);
+    }
 }

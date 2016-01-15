@@ -4,8 +4,8 @@ namespace WallaceMaxters\Itertools;
 
 class RangePairs extends Range
 {
-	public function key()
-	{
-		return $this->current();
-	}
+    public function key()
+    {
+        return $this->current();
+    }
 }
