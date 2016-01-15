@@ -7,14 +7,30 @@ use Countable;
 
 class Range implements Iterator, Countable
 {	
+
+	/**
+	* @var int
+	*/
 	protected $min;
 
+	/**
+	* @var int
+	*/
 	protected $max;
 
+	/**
+	* @var int
+	*/
 	protected $step;
 
+	/**
+	* @var int
+	*/
 	protected $current;
 
+	/**
+	* @var int
+	*/
 	protected $key;
 
 	public function __construct($min, $max, $step = 1)
@@ -33,24 +49,24 @@ class Range implements Iterator, Countable
 
 	public function key()
 	{
-		return $this->key;
+		return $this->valid() ? $this->key : NULL;
 	}
 
 	public function next()
 	{
 		$this->current += $this->step;
 
-		++$this->key;
+		$this->key++;
 	}
 
 	public function current()
 	{
-		return $this->current;
+		return $this->valid() ? $this->current : NULL;
 	}
 
 	public function valid()
 	{
-		if ($this->step >= 0) {
+		if ($this->step > 0) {
 
 			return $this->current <= $this->max;
 		}

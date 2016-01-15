@@ -1,11 +1,10 @@
 <?php
 
-namespace WallaceMaxters\IterTools\Iterators;
+namespace WallaceMaxters\Itertools\Iterators;
 
 use ArrayIterator as BaseArrayIterator;
-use WallaceMaxters\Itertools\PositionInterface;
 
-class ArrayPosition extends BaseArrayIterator implements PositionInterface
+class ArrayPosition extends BaseArrayIterator implements Positionable
 {
 	protected $position = 0;
 

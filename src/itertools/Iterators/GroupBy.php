@@ -1,6 +1,6 @@
 <?php
 
-namespace WallaceMaxters\IterTools\Iterators;
+namespace WallaceMaxters\Itertools\Iterators;
 
 use Iterator;
 use ArrayAccess;
