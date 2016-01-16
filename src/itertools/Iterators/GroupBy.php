@@ -12,7 +12,7 @@ class GroupBy implements IteratorAggregate, ArrayAccess
 {
     protected $groups = [];
 
-    public function __construct(Iterator $iterator, callable $callback)
+    public function __construct(Iterator $iterator, callable $callback, $preserveKeys = true)
     {   
 
         foreach ($iterator as $key => $value) {
@@ -21,12 +21,13 @@ class GroupBy implements IteratorAggregate, ArrayAccess
                 $callback($value, $key, $iterator)
             );
 
-            if (! $this->has($group_key)) {
+            if (! isset($this[$group_key])) {
 
-                $this->set($group_key, new ArrayIterator);
+                $this[$group_key] = new ArrayIterator;
             }
+
+            $this[$group_key][$preserveKeys ? $key : NULL] = $value;
             
-            $this[$group_key][] = $value;
         }
     }
 

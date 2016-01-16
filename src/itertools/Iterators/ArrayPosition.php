@@ -2,9 +2,9 @@
 
 namespace WallaceMaxters\Itertools\Iterators;
 
-use ArrayIterator as BaseArrayIterator;
+use ArrayIterator;
 
-class ArrayPosition extends BaseArrayIterator implements Positionable
+class ArrayPosition extends ArrayIterator implements Positionable
 {
     protected $position = 0;
 
@@ -25,5 +25,12 @@ class ArrayPosition extends BaseArrayIterator implements Positionable
         parent::seek($position);
 
         $this->position = $position;
+    }
+
+    public function rewind()
+    {
+        parent::rewind();
+
+        $this->position = 0;
     }
 }

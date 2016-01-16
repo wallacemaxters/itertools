@@ -16,7 +16,7 @@ $cb2 = function ($value, $key)
 };
 
 
-$range = new Range(1, 10);
+$range = new Range(-9, 10);
 
 $mapper = new MapperIterator($range, $cb2);
 

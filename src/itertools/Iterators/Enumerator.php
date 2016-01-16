@@ -56,4 +56,13 @@ class Enumerator extends IteratorIterator
         return new self(new ArrayIterator($array), $start);
     }
 
+    /**
+    * Get initial value of iteration
+    * @return scalar
+    */
+    public function getStart()
+    {
+        return $this->start;
+    }
+
 }

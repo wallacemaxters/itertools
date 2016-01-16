@@ -8,7 +8,7 @@ use Traversable,
 /**
 * @author Wallace de Souza Vizerra <wallacemaxters@gmail.com>
 */
-class MapperIterator extends IteratorIterator implements IteratorMappable
+class MapperIterator extends IteratorIterator implements Mappable
 {   
     /**
     * @var callable

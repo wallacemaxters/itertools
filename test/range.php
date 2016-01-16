@@ -4,8 +4,10 @@ include __DIR__ . '/../vendor/autoload.php';
 
 
 use WallaceMaxters\Itertools\Range;
+
 use WallaceMaxters\Itertools\RangePairs;
 use WallaceMaxters\Itertools\Iterators\Enumerator;
+use WallaceMaxters\Itertools\Iterators\GroupBy;
 use WallaceMaxters\Itertools\Iterators\ArrayPosition;
 
 $option = isset($argv[1]) ? $argv[1] : NULL;
@@ -34,7 +36,30 @@ if ($option == 'enum') {
 
 if ($option == 'groupby')
 {
-		
+	$group = new GroupBy(new RangePairs(1, 10), function ($v)
+	{
+		return $v % 2 == 0 ? 'par' : 'ímpar';
+	});
+
+	print_r(WallaceMaxters\Itertools\iterator_to_array_recursive($group));
+
+	$frutas = new ArrayIterator([
+		'banana ouro',
+		'maçã argentina',
+		'maçã verde',
+		'banana prata',
+		'banana nanica',
+		'pêra', 'uva', 'maçã'
+	]);
+
+	$group1 = new GroupBy($frutas, function ($v)
+	{
+		preg_match('/\w+/u', $v, $match);
+
+		return $match[0];
+	});
+
+	print_r(WallaceMaxters\Itertools\iterator_to_array_recursive($group1));
 }
 
 if ($option == 'pairs')
