@@ -6,6 +6,10 @@ use Traversable;
 use IteratorIterator;
 use ArrayIterator;
 
+/**
+* Enumerates keys of a iterator
+* @author Wallace de Souza Vizerra <wallacemaxters@gmail.com>
+*/
 class Enumerator extends IteratorIterator
 {   
     /**
@@ -32,11 +36,21 @@ class Enumerator extends IteratorIterator
         $this->key = $this->start;
     }
 
+    /**
+    * Returns key of enumeration
+    * @return int|string
+    */
     public function key()
     {
         return $this->key;
     }
 
+
+    /**
+    * Increment key of enumeration
+    *
+    * @return void
+    */
     public function next()
     {
         ++$this->key;
@@ -44,6 +58,10 @@ class Enumerator extends IteratorIterator
         parent::next();
     }
 
+    /**
+    * Reset iteration
+    * @return void
+    */
     public function rewind()
     {
         $this->key = $this->start;
@@ -51,7 +69,14 @@ class Enumerator extends IteratorIterator
         parent::rewind();
     }
 
-    public static function fromArray($array, $start = 0)
+    /**
+    * Easy way to enumerate array
+    * @param array $array
+    * @param int|string $start
+    * @static
+    * @return static
+    */
+    public static function fromArray(array $array, $start = 0)
     {
         return new self(new ArrayIterator($array), $start);
     }

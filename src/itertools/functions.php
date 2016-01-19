@@ -2,13 +2,16 @@
 
 namespace WallaceMaxters\Itertools;
 
-
+/**
+* @param Traversable $iterator
+* @return arrays
+*/
 function iterator_to_array_recursive($iterator)
 {
 	$func = __FUNCTION__;
 
-	if ($iterator instanceof \Iterator)
-	{
+	if ($iterator instanceof \Iterator) {
+
 		return array_map($func, iterator_to_array($iterator));
 
 	} elseif ($iterator instanceof \IteratorAggregate) {
@@ -17,5 +20,10 @@ function iterator_to_array_recursive($iterator)
 	}
 
 	return $iterator;
+}
+
+function repeat($number, callable $callback)
+{
+	for ($i = 1; $i < $number; $i++) $callback($i);
 }
 

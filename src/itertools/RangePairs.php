@@ -1,6 +1,10 @@
 <?php
 
 namespace WallaceMaxters\Itertools;
+/**
+* Create range with key as current value
+* @author Wallace de Souza Vizerra <wallacemaxters@gmail.com>
+*/
 
 class RangePairs extends Range
 {

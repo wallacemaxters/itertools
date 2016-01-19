@@ -1,17 +1,31 @@
+
 <?php
 
 namespace WallaceMaxters\Itertools\Iterators;
 
 use Iterator;
 use ArrayAccess;
-use UnexpectedValueException;
 use ArrayIterator;
 use IteratorAggregate;
+use UnexpectedValueException;
 
+/**
+* Group a Iterator according to callback
+* @author Wallace de Souza Vizerra <wallacemaxters@gmail.com>
+*/
 class GroupBy implements IteratorAggregate, ArrayAccess
 {
+
+    /**
+    * @var array
+    */
     protected $groups = [];
 
+    /**
+    * @param \Iterator $iterator
+    * @param callable $callback
+    * @param bool $preserveKeys true
+    */
     public function __construct(Iterator $iterator, callable $callback, $preserveKeys = true)
     {   
 
@@ -31,36 +45,22 @@ class GroupBy implements IteratorAggregate, ArrayAccess
         }
     }
 
+    /**
+    * Implementation of \IteratorAggregate
+    * @return \ArrayIterator
+    */
     public function getIterator()
     {
         return new ArrayIterator($this->groups);
     }
 
-    public function remove($key)
-    {
-        $value = $this->groups[$key];
-
-        unset($this->groups[$key]);
-
-        return $value;
-    }
-
-    public function get($key)
-    {
-        if ($this->has($key)) {
-
-            return $this->groups[$key];
-        }
-    }
-
+    /**
+    * @param string|int $key
+    * @param \Iterator $iterator
+    */
     public function set($key, Iterator $iterator)
     {
         $this->groups[$key] = $iterator;
-    }
-
-    public function has($key)
-    {
-        return isset($this->groups[$key]);
     }
 
     public function offsetSet($key, $value)
@@ -70,19 +70,24 @@ class GroupBy implements IteratorAggregate, ArrayAccess
 
     public function offsetExists($key)
     {
-        return $this->has($key);
+        return isset($this->groups[$key]);
     }
 
     public function offsetGet($key)
     {
-        return $this->get($key);
+        return $this->offsetExists($key) ? $this->groups[$key] : null;
     }
 
     public function offsetUnset($key)
     {
-        return $this->remove($key);
+        unset($this->groups[$key]);
     }
 
+    /**
+    * Parses the return
+    * @throws \UnexpectedValueException
+    * @param mixed $key
+    */
     protected function parseKey($key)
     {
         if (is_scalar($key) || is_null($key)) {
