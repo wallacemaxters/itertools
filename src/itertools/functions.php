@@ -8,18 +8,18 @@ namespace WallaceMaxters\Itertools;
 */
 function iterator_to_array_recursive($iterator)
 {
-	$func = __FUNCTION__;
+    $func = __FUNCTION__;
 
-	if ($iterator instanceof \Iterator) {
+    if ($iterator instanceof \Iterator) {
 
-		return array_map($func, iterator_to_array($iterator));
+        return array_map($func, iterator_to_array($iterator));
 
-	} elseif ($iterator instanceof \IteratorAggregate) {
+    } elseif ($iterator instanceof \IteratorAggregate) {
 
-		return array_map($func, iterator_to_array($iterator->getIterator()));
-	}
+        return array_map($func, iterator_to_array($iterator->getIterator()));
+    }
 
-	return $iterator;
+    return $iterator;
 }
 
 /**
@@ -29,6 +29,6 @@ function iterator_to_array_recursive($iterator)
 */
 function repeat($number, callable $callback)
 {
-	for ($i = 1; $i <= $number; $i++) $callback($i);
+    for ($i = 1; $i <= $number; $i++) $callback($i);
 }
 

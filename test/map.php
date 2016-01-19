@@ -7,12 +7,12 @@ use WallaceMaxters\Itertools\Range;
 
 $cb1 = function ($value)
 {
-	return sprintf('%01d', $value);
-};	
+    return sprintf('%01d', $value);
+};  
 
 $cb2 = function ($value, $key)
 {
-	return json_encode([$key => $value]);
+    return json_encode([$key => $value]);
 };
 
 
