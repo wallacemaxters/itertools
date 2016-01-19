@@ -32,3 +32,17 @@ function repeat($number, callable $callback)
     for ($i = 1; $i <= $number; $i++) $callback($i);
 }
 
+
+/**
+* Range pairs of key and value identically. 
+* Is not used WallaceMaxters\Itertools\RangePairs
+* @param scalar $min
+* @param scalar $max
+* @param scalar $step
+* @return array
+*/
+function range_pairs($min, $max, $step = 1)
+{
+	return array_combine($range = range($min, $max, $step), $range);
+}
+
