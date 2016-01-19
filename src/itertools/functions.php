@@ -22,8 +22,13 @@ function iterator_to_array_recursive($iterator)
 	return $iterator;
 }
 
+/**
+* Repeat operation
+* @param int $number Number of repetitions of callback
+* @param callable $callback the callback
+*/
 function repeat($number, callable $callback)
 {
-	for ($i = 1; $i < $number; $i++) $callback($i);
+	for ($i = 1; $i <= $number; $i++) $callback($i);
 }
 
