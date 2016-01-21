@@ -3,7 +3,7 @@
 namespace WallaceMaxters\Itertools;
 
 /**
-* @param Traversable $iterator
+* @param \Traversable $iterator
 * @return arrays
 */
 function iterator_to_array_recursive($iterator)
@@ -35,7 +35,7 @@ function repeat($number, callable $callback)
 
 /**
 * Range pairs of key and value identically. 
-* Is not used WallaceMaxters\Itertools\RangePairs
+* WallaceMaxters\Itertools\RangePairs Is not used internally
 * @param scalar $min
 * @param scalar $max
 * @param scalar $step

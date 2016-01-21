@@ -8,7 +8,7 @@ namespace WallaceMaxters\Itertools\Iterators;
 interface Mappable extends \OuterIterator
 {
     /**
-    * Set the mapper for children iterator
+    * Set the mapper for child Iterator
     * @param callable $callback
     */
     public function setMapper(callable $callback);

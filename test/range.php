@@ -14,12 +14,15 @@ $option = isset($argv[1]) ? $argv[1] : NULL;
 
 if ($option == 'range') {
 	
-	$range = new Range(1, 10);
+	$range = new Range(0.2, 10.4, .2);
 
     foreach ($range as $key => $value) {
     	
         printf("%s => %s\n", $key, $value);
     }
+
+
+    print_r($range->current());
 }
 
 if ($option == 'enum') {

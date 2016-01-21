@@ -54,6 +54,7 @@ class GroupBy implements IteratorAggregate, ArrayAccess
     }
 
     /**
+    * Set a new group
     * @param string|int $key
     * @param \Iterator $iterator
     */
@@ -83,7 +84,7 @@ class GroupBy implements IteratorAggregate, ArrayAccess
     }
 
     /**
-    * Parses the return
+    * Parses the key
     * @throws \UnexpectedValueException
     * @param mixed $key
     */

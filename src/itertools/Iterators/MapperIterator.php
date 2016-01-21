@@ -2,8 +2,8 @@
 
 namespace WallaceMaxters\Itertools\Iterators;
 
-use Traversable,
-    IteratorIterator;
+use Traversable;
+use IteratorIterator;
 
 /**
 * @author Wallace de Souza Vizerra <wallacemaxters@gmail.com>

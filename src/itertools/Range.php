@@ -39,7 +39,7 @@ class Range implements Iterator, Countable
     /**
     * @var int
     */
-    protected $key;
+    private $position;
 
     /**
     * @param int $min
@@ -58,9 +58,12 @@ class Range implements Iterator, Countable
         $this->rewind();
     }
 
+    /**
+    * @return scalar
+    */
     public function key()
     {
-        return $this->valid() ? $this->key : null;
+        return $this->position;
     }
 
     /**
@@ -70,7 +73,7 @@ class Range implements Iterator, Countable
     {
         $this->current += $this->step;
 
-        $this->key;
+        $this->position++;
     }
 
     /**
@@ -79,7 +82,7 @@ class Range implements Iterator, Countable
     */
     public function current()
     {
-        return $this->valid() ? $this->current : null;
+        return $this->current;
     }
 
     /**
@@ -104,7 +107,7 @@ class Range implements Iterator, Countable
     {
         $this->current = $this->min;
 
-        $this->key = 0;
+        $this->position = 0;
     }
 
     /**

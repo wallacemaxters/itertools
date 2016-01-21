@@ -4,6 +4,11 @@ namespace WallaceMaxters\Itertools\Iterators;
 
 use ArrayIterator;
 
+/**
+* ArrayIterator that knows current position of iteration
+* @author Wallace de Souza Vizerra <wallacemaxters@gmail.com>
+*/
+
 class ArrayPosition extends ArrayIterator implements Positionable
 {
     protected $position = 0;
